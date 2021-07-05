@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "be9a1f22-96f0-43a0-988c-a36f8349733c",
+		"name": "CHALLENGE-PROVI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Autenticação",
+			"item": [
+				{
+					"name": "Autenticação do usuário",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"tiagorosadacost22@gmail.com\",\n\t\"password\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/auth/login",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout do usuário",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/auth/logout",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar usuário",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"tiagorosadacosta22\",\n\t\"email\": \"tiagorosadacost22@gmail.com\",\n\t\"password\": \"123456789\",\n\t\"role\": \"ADMIN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/auth/register",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Albums",
+			"item": [
+				{
+					"name": "Listar albums",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}/albums",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar album por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}/albums/60e246efe30cda3f473c95fc",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"albums",
+								"60e246efe30cda3f473c95fc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar album por id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlApi}}/albums/60e246efe30cda3f473c95fc",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"albums",
+								"60e246efe30cda3f473c95fc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar um album",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/tiago/Área de Trabalho/bujao-gas.jpeg"
+								},
+								{
+									"key": "name",
+									"value": "teste",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "teste teafdafdfdsfadfasdfasdfa",
+									"type": "text"
+								},
+								{
+									"key": "genre",
+									"value": "60e07a069cbb326703e06c67",
+									"type": "text"
+								},
+								{
+									"key": "artist",
+									"value": "60e248ce9033654fd4e803a0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlApi}}/albums",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar album por id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/tiago/Área de Trabalho/bujao-gas.jpeg"
+								},
+								{
+									"key": "name",
+									"value": "teste",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "teste teafdafdfdsfadfasdfasdfa",
+									"type": "text"
+								},
+								{
+									"key": "genre",
+									"value": "60e07a069cbb326703e06c67",
+									"type": "text"
+								},
+								{
+									"key": "artist",
+									"value": "60e248ce9033654fd4e803a0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlApi}}/albums/60e246efe30cda3f473c95fc",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"albums",
+								"60e246efe30cda3f473c95fc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Artista",
+			"item": [
+				{
+					"name": "Listar artistas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{urlApi}}/artists",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"artists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar artista por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}/artists/60e248ce9033654fd4e803a0",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"artists",
+								"60e248ce9033654fd4e803a0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta artista por id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlApi}}/artists/60e248ce9033654fd4e803a0",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"artists",
+								"60e248ce9033654fd4e803a0"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar um artista",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/tiago/Área de Trabalho/bujao-gas.jpeg"
+								},
+								{
+									"key": "name",
+									"value": "teste",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "teste",
+									"type": "text"
+								},
+								{
+									"key": "genre",
+									"value": "60e07a069cbb326703e06c67",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlApi}}/artists",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"artists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar artista",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/tiago/Área de Trabalho/bujao-gas.jpeg"
+								},
+								{
+									"key": "name",
+									"value": "teste",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "teste",
+									"type": "text"
+								},
+								{
+									"key": "genre",
+									"value": "60e07a069cbb326703e06c67",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlApi}}/artists/60e245702090493abe51d1f7",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"artists",
+								"60e245702090493abe51d1f7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gênero",
+			"item": [
+				{
+					"name": "Lista de gêneros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}/genres",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar um gênero",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Rock roll\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/genres",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

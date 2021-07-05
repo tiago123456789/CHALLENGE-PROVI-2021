@@ -31,11 +31,9 @@ export default (app: Express) => {
     app.post("/genres", Authorization.hasPermission("ADMIN"), genreEndpoint.create)
     app.get("/genres", genreEndpoint.findAll)
 
-    app.post("/auth", userEndpoint.authenticate);
-    app.post("/auth/registers", userEndpoint.create);
+    app.post("/auth/login", userEndpoint.authenticate);
+    app.post("/auth/register", userEndpoint.create);
     app.post("/auth/logout", userEndpoint.logout);
-
-
 
     // Handler exceptions in aplication.
     app.use(handlerException);
