@@ -15,6 +15,7 @@ export default class UserEndpoint extends Endpoint {
         this.findById = this.findById.bind(this);
         this.create = this.create.bind(this);
         this.authenticate = this.authenticate.bind(this);
+        this.logout = this.logout.bind(this);
     }
 
     getRulesValidation(): ObjectSchema {
@@ -51,6 +52,17 @@ export default class UserEndpoint extends Endpoint {
             response.json({
                 accessToken
             })
+        } catch(error) {
+            next(error);
+        }
+    }
+
+    async logout(request: Request, response: Response, next: NextFunction) {
+        try {
+            const accessToken = request.headers.authorization;
+            // @ts-ignore
+            await this.authenticator.denyAccess(accessToken);
+            response.sendStatus(200);
         } catch(error) {
             next(error);
         }

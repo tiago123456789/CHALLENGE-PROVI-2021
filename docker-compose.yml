@@ -7,3 +7,10 @@ services:
         ports:
             - 27017:27017
         container_name: mongodb-database
+
+    redis:
+        image: redis
+        ports:
+            - 6379:6379
+        container_name: redis-cache
+

@@ -1,5 +1,6 @@
 import Authenticator from "../security/Authenticator";
 import AuthenticatorInterface from "../security/AuthenticatorInterface";
+import CacheFactory from "./CacheFactory";
 import EncrypterFactory from "./EncrypterFactory";
 import FactoryInterface from "./FactoryInterface";
 import TokenFactory from "./TokenFactory";
@@ -11,7 +12,8 @@ export default class AuthenticatorFactory implements FactoryInterface<Authentica
         return new Authenticator(
             new TokenFactory().make({}),
             new EncrypterFactory().make({}),
-            new UserRepositoryFactory().make({})
+            new UserRepositoryFactory().make({}),
+            new CacheFactory().make({})
         )
     }
 

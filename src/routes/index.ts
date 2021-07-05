@@ -33,6 +33,8 @@ export default (app: Express) => {
 
     app.post("/auth", userEndpoint.authenticate);
     app.post("/auth/registers", userEndpoint.create);
+    app.post("/auth/logout", userEndpoint.logout);
+
 
 
     // Handler exceptions in aplication.
