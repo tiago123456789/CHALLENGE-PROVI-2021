@@ -1,4 +1,4 @@
 .env
 node_modules/
 build/
-.env.testing
+.env.testing 
