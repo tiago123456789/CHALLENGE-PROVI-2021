@@ -10,14 +10,6 @@ export default class UserService implements UserServiceInterface {
         private readonly encrypter: Encrypter
     ) {}
 
-    findAll() {
-        return this.repository.findAll();
-    }
-
-    findById(id: string) {
-        return this.repository.findById(id);
-    }
-
     async create(register: any) {
         const userWithEmail = await this.repository.findByEmail(register.email);
         if (userWithEmail) {

@@ -1,12 +1,13 @@
 import AbstractRepository from "./AbstractRepository";
 import AlbumRepositoryInterface from "./AlbumRepositoryInterface";
+import Album from "../collections/Album"
 
 export default class AlbumRepository 
     extends AbstractRepository 
     implements AlbumRepositoryInterface {
 
-    constructor(model: any) {
-        super(model);
+    constructor() {
+        super(Album);
     }
 
     findByName(name: string): Promise<any> {

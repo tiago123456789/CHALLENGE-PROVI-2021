@@ -1,3 +1,4 @@
+import Artist from "../collections/Artist";
 import AbstractRepository from "./AbstractRepository";
 import ArtistRepositoryInterface from "./ArtistRepositoryInterface";
 
@@ -5,8 +6,8 @@ export default class ArtistRepository
     extends AbstractRepository 
     implements ArtistRepositoryInterface {
 
-    constructor(model: any) {
-        super(model);
+    constructor() {
+        super(Artist);
     }
 
     findByName(name: string): Promise<any> {

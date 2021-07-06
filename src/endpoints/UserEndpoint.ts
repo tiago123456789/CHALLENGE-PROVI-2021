@@ -11,8 +11,6 @@ export default class UserEndpoint extends Endpoint {
         private readonly authenticator: AuthenticatorInterface
     ) {
         super();
-        this.findAll = this.findAll.bind(this);
-        this.findById = this.findById.bind(this);
         this.create = this.create.bind(this);
         this.authenticate = this.authenticate.bind(this);
         this.logout = this.logout.bind(this);
@@ -27,11 +25,6 @@ export default class UserEndpoint extends Endpoint {
                         .required()
                         .regex(/(ADMIN|CLIENT)/)
         });
-    }
-
-    async findAll(request: Request, response: Response) {
-        const users = await this.service.findAll();
-        response.json(users);
     }
 
     async create(request: Request, response: Response, next: NextFunction) {
@@ -66,11 +59,5 @@ export default class UserEndpoint extends Endpoint {
         } catch(error) {
             next(error);
         }
-    }
-
-    async findById(request: Request, response: Response) {
-        const id = request.params.id;
-        const user = await this.service.findById(id);
-        response.json(user);
     }
 }

@@ -1,7 +1,6 @@
 import express from "express";
-import dotenv from "dotenv"
+import "./LoaderEnv"
 import helmet from "helmet"
-dotenv.config();
 import "./Database";
 import "./Sentry"
 import routesApp from "../routes/index"
@@ -19,4 +18,4 @@ app.use(express.urlencoded())
 // Load routes the application.
 routesApp(app)
 
-app.listen(process.env.PORT, () => console.log(`Server is running in address ${process.env.URL_APP}`))
+export default app
