@@ -7,6 +7,7 @@ export default {
         return async (request: Request, response: Response, next: NextFunction) => {
             try {
                 let accessToken = request.headers.authorization;
+                
                 if (!accessToken) {
                     return response.status(403).json({
                         statusCode: 403,
@@ -14,9 +15,13 @@ export default {
                     })
                 }
                 accessToken = accessToken.replace("Bearer ", "");
-                await authenticator.hasPermission(permissionNeed, accessToken);
+                const isEnviromentTest = process.env.NODE_ENV == "testing"
+                if (isEnviromentTest && process.env.JWT_TOKEN_ALLOWED == accessToken) {
+                    next();
+                    return;
+                }
 
-                  
+                await authenticator.hasPermission(permissionNeed, accessToken);
                 next();
             } catch (error) {
                 next(error);
