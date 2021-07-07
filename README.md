@@ -6,14 +6,30 @@ Requirements:
 - Typescript
 - Docker
 - Docker compose
+
+Technologies:
+==============
+- Node.js
+- Npm
+- Typescript
+- Docker
+- Docker compose
 - Mongodb
 - Redis
 - Sentry
+- Jest
 
 Architecture:
 ==============
 
 ![image of architecute](./Arquitetura-challenge-provi-2021.png)
+
+ Explain image about architecture above:
+    - Client make request api
+    - Api persist and query data in mongodb. I'm used mongodb her perfomance and flexibily.
+    - When perist image I'm used S3 this solution prevent problem with disk full the machine, availability and this strategy allow scale this api horizontally
+    - When user make logout add token jwt in redis(blacklist) in this case I'm used this solution prevent token jwt be used after logout same jwt token no expired
+    - When occour internal server error I'm used Sentry(service monitoring errors in application) where send error to Sentry and this service notify dev team per email.
 
 Database diagram:
 ===================
