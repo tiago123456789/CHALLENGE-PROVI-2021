@@ -16,11 +16,13 @@ export default multer({
     s3: s3,
     // @ts-ignore
     bucket: process.env.S3_BUCKET,
+    acl: "public-read",
     metadata: function (req, file, cb) {
       cb(null, {fieldName: file.fieldname});
     },
     key: function (req, file, cb) {
-      cb(null, Date.now().toString())
+      const extension = file.originalname.split(".")[1]
+      cb(null, Date.now().toString() + "." + extension)
     }
   })
 })

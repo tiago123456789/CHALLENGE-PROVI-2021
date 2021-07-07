@@ -12,7 +12,8 @@ const albumSchema = new mongoose.Schema({
         _id: String,
         name: String,
         image: String
-    }
+    },
+    musics: [String]
 })
 
 export default mongoose.model("album", albumSchema);

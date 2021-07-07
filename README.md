@@ -11,8 +11,16 @@ Requirements:
 - Sentry
 
 Architecture:
+==============
 
-![image da arquitetura](./Arquitetura-challenge-provi-2021.png)
+![image of architecute](./Arquitetura-challenge-provi-2021.png)
+
+Database diagram:
+===================
+
+![image database diagram](./diagrama-banco-dados.png)
+
+
 
 Setting dev environment:
 ==========================

@@ -22,6 +22,7 @@ export default class AlbumEndpoint extends Endpoint {
             image: Joi.string().required(),
             genre: Joi.string().required(),
             artist: Joi.string().required(),
+            musics: Joi.array().min(1).required()
         });
     }
 
@@ -32,10 +33,13 @@ export default class AlbumEndpoint extends Endpoint {
 
     async create(request: Request, response: Response, next: NextFunction) {
         try {
+            // @ts-ignore
+            const musics = (request.files?.musics || []).map((item: any) => item.location)
             const register = {
                 ...request.body,
                 // @ts-ignore
-                image: request.file ? request.file.location : null
+                image: request.files?.image.length > 0 ? request.files.image[0].location : null,
+                musics
             };
             this.isValidDatas(register);
             await this.service.create(register);
@@ -68,10 +72,14 @@ export default class AlbumEndpoint extends Endpoint {
     async update(request: Request, response: Response, next: NextFunction) {
         try {
             const id = request.params.id;
+            
+            // @ts-ignore
+            const musics = (request.files?.musics || []).map((item: any) => item.location)
             const register = {
                 ...request.body,
                 // @ts-ignore
-                image: request.file ? request.file.location : null
+                image: request.files?.image.length > 0 ? request.files.image[0].location : null,
+                musics
             };
             this.isValidDatas(register);
             await this.service.update(id, register);
