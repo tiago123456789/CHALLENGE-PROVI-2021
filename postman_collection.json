@@ -123,13 +123,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{urlApi}}/albums/60e246efe30cda3f473c95fc",
+							"raw": "{{urlApi}}/albums/60e53710c9a19d0004c0f38b",
 							"host": [
 								"{{urlApi}}"
 							],
 							"path": [
 								"albums",
-								"60e246efe30cda3f473c95fc"
+								"60e53710c9a19d0004c0f38b"
 							]
 						}
 					},
@@ -143,7 +143,8 @@
 							{
 								"key": "Authorization",
 								"value": "{{accessToken}}",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
@@ -190,13 +191,23 @@
 								},
 								{
 									"key": "genre",
-									"value": "60e07a069cbb326703e06c67",
+									"value": "60e5337ca5196c2ed5185adc",
 									"type": "text"
 								},
 								{
 									"key": "artist",
-									"value": "60e248ce9033654fd4e803a0",
+									"value": "60e536d1c9a19d0004c0f382",
 									"type": "text"
+								},
+								{
+									"key": "musics",
+									"type": "file",
+									"src": "/home/tiago/Área de Trabalho/whatsapp.mp3"
+								},
+								{
+									"key": "musics",
+									"type": "file",
+									"src": "/home/tiago/Área de Trabalho/whatsapp.mp3"
 								}
 							]
 						},
@@ -243,24 +254,29 @@
 								},
 								{
 									"key": "genre",
-									"value": "60e07a069cbb326703e06c67",
+									"value": "60e5337ca5196c2ed5185adc",
 									"type": "text"
 								},
 								{
 									"key": "artist",
-									"value": "60e248ce9033654fd4e803a0",
+									"value": "60e536d1c9a19d0004c0f382",
 									"type": "text"
+								},
+								{
+									"key": "musics",
+									"type": "file",
+									"src": "/home/tiago/Área de Trabalho/som_usado_teste_integracao.mp3"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{urlApi}}/albums/60e246efe30cda3f473c95fc",
+							"raw": "{{urlApi}}/albums/60e53710c9a19d0004c0f38b",
 							"host": [
 								"{{urlApi}}"
 							],
 							"path": [
 								"albums",
-								"60e246efe30cda3f473c95fc"
+								"60e53710c9a19d0004c0f38b"
 							]
 						}
 					},
@@ -325,13 +341,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{urlApi}}/artists/60e248ce9033654fd4e803a0",
+							"raw": "{{urlApi}}/artists/60e5358df79a340004d658f4",
 							"host": [
 								"{{urlApi}}"
 							],
 							"path": [
 								"artists",
-								"60e248ce9033654fd4e803a0"
+								"60e5358df79a340004d658f4"
 							],
 							"query": [
 								{
@@ -365,17 +381,17 @@
 								},
 								{
 									"key": "name",
-									"value": "teste",
+									"value": "Adelitas way",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "teste",
+									"value": "Adelitas way is band the rock roll",
 									"type": "text"
 								},
 								{
 									"key": "genre",
-									"value": "60e07a069cbb326703e06c67",
+									"value": "60e5337ca5196c2ed5185adc",
 									"type": "text"
 								}
 							]
@@ -413,29 +429,29 @@
 								},
 								{
 									"key": "name",
-									"value": "teste",
+									"value": "Adelitas way updated",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "teste",
+									"value": "Adelitas way the rock roll band updated",
 									"type": "text"
 								},
 								{
 									"key": "genre",
-									"value": "60e07a069cbb326703e06c67",
+									"value": "60e5337ca5196c2ed5185adc",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{urlApi}}/artists/60e245702090493abe51d1f7",
+							"raw": "{{urlApi}}/artists/60e5358df79a340004d658f4",
 							"host": [
 								"{{urlApi}}"
 							],
 							"path": [
 								"artists",
-								"60e245702090493abe51d1f7"
+								"60e5358df79a340004d658f4"
 							]
 						}
 					},
@@ -476,7 +492,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Rock roll\"\n}",
+							"raw": "{\n\t\"name\": \"Kpop\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
