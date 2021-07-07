@@ -35,7 +35,6 @@ export default (error: Error, request: Request, response: Response, next: NextFu
                 message: "You need have permission to access this resource"
             });
         default:
-            console.log(error);
             sentry.captureException(error)
             return response.status(500).json({
                 statusCode: 500,

@@ -35,13 +35,18 @@ export default class Authenticator implements AuthenticatorInterface {
     }
 
     async hasPermission(permissionNeed: string, token: any): Promise<Boolean> {
-        await this.isAccessTokenInBlacklist(token);
-        const payload = await this.jwtToken.isValid(token);
-        if (!payload) {
-            return false;
+        try {
+            await this.isAccessTokenInBlacklist(token);
+            const payload = await this.jwtToken.isValid(token);
+            if (!payload) {
+                return false;
+            }
+            // @ts-ignore
+            return permissionNeed == (payload.role);
+        } catch(error) {
+            throw new ForbiddenException("You need have permission to access this resource")
         }
-        // @ts-ignore
-        return permissionNeed == (payload.role);
+       
     }
 
     async denyAccess(token: string) {
