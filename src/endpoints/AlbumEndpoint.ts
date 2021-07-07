@@ -75,7 +75,7 @@ export default class AlbumEndpoint extends Endpoint {
             };
             this.isValidDatas(register);
             await this.service.update(id, register);
-            response.sendStatus(201);
+            response.sendStatus(204);
         } catch(err) {
             next(err) 
         }
