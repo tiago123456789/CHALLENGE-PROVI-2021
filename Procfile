@@ -1,1 +1,1 @@
-web: NODE_ENV=prod node ./build/src/index.js
+web: NODE_ENV=prod node ./build/src/index.js 
