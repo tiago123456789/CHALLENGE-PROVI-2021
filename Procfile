@@ -1,1 +1,1 @@
-web: ./node_modules/.bin/tsc && node ./build/src/index.js
+web: node ./build/src/index.js
