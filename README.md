@@ -64,4 +64,6 @@ Details necessary to test api:
 - Import **PROD.postman_environment.json** file in postman this file is environment variable the production
 - Import **Dev.postman_environment.json** file in postman this file is environment variable the development
 
+- Link api the production environment: **https://challenge-provi.herokuapp.com/**
+
 - OBSERVATION: after make instruction above you need access collection in part authentication to create and after authenticate. After authenticate get token jwt and add in environment to prevent add all requests.
