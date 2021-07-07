@@ -19,11 +19,18 @@ class Cache implements CacheInterface {
             port: process.env.REDIS_PORT, 
             "url": process.env.REDIS_URL
         });
+
+        if (process.env.NODE_ENV == 'prod') {
+            // @ts-ignore
+            this.cacheClient.auth(process.env.REDIS_PASSWORD);
+        }
     }
 
     quit() {
         return new Promise((resolve, reject) => {
             this.cacheClient.quit(() => {
+
+                // @ts-ignore
                 resolve()
             });
         })
