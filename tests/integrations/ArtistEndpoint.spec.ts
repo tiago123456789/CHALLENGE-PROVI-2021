@@ -3,19 +3,14 @@ import app from "../../src/config/Server";
 import mongoose from "mongoose";
 import cache from "../../src/utils/Cache";
 import Genre from "../../src/collections/Genre";
-import GenreService from "../../src/services/GenreService";
 import GenreServiceFactory from "../../src/factories/GenreServiceFactory";
-import AuthenticatorFactory from "../../src/factories/AuthenticatorFactory";
-import UserServiceFactory from "../../src/factories/UserServiceFactory";
-import User from "../../src/collections/User";
 import Artist from "../../src/collections/Artist";
-import fs from "fs";
 import ArtistServiceFactory from "../../src/factories/ArtistServiceFactory";
 
 
 describe("Integration tests endpoint /artists", () => {
     const registerFake = {
-        "name": "teste fake",
+        "name": "teste fake 22",
         "description": "teste testando fake",
         "genre": ""
     };

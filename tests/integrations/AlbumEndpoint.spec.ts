@@ -123,6 +123,7 @@ describe("Integration tests endpoint /albums", () => {
                 .field("genre", idFake)
                 .field("artist", idFake)
                 .attach("image", "./Arquitetura-challenge-provi-2021.png")
+                .attach("musics", "./som_usado_teste_integracao.mp3")
                 .expect(404, done);
     });
 
@@ -155,6 +156,7 @@ describe("Integration tests endpoint /albums", () => {
                 .field("genre", String(album.genre._id))
                 .field("artist", String(album.artist._id))
                 .attach("image", "./Arquitetura-challenge-provi-2021.png")
+                .attach("musics", "./som_usado_teste_integracao.mp3")
                 .expect(204, done);
         })
     });
@@ -188,6 +190,7 @@ describe("Integration tests endpoint /albums", () => {
                 .field("genre", idFake)
                 .field("artist", String(album.artist._id))
                 .attach("image", "./Arquitetura-challenge-provi-2021.png")
+                .attach("musics", "./som_usado_teste_integracao.mp3")
                 .expect(404, done);
         })
     });
@@ -221,6 +224,7 @@ describe("Integration tests endpoint /albums", () => {
                 .field("genre", String(album.genre._id))
                 .field("artist", idFake)
                 .attach("image", "./Arquitetura-challenge-provi-2021.png")
+                .attach("musics", "./som_usado_teste_integracao.mp3")
                 .expect(404, done);
         })
     });
@@ -254,6 +258,7 @@ describe("Integration tests endpoint /albums", () => {
                     .field("artist", String(artist._id))
 
                     .attach("image", "./Arquitetura-challenge-provi-2021.png")
+                    .attach("musics", "./som_usado_teste_integracao.mp3")
                     .expect(201, done())
             })
 
@@ -279,6 +284,7 @@ describe("Integration tests endpoint /albums", () => {
                     .field("genre", String(idFake))
                     .field("artist", String(artist._id))
                     .attach("image", "./Arquitetura-challenge-provi-2021.png")
+                    .attach("musics", "./som_usado_teste_integracao.mp3")
                     .expect(404, done())
             })
 
@@ -304,6 +310,7 @@ describe("Integration tests endpoint /albums", () => {
                     .field("genre", String(artist.genre._id))
                     .field("artist", String(idFake))
                     .attach("image", "./Arquitetura-challenge-provi-2021.png")
+                    .attach("musics", "./som_usado_teste_integracao.mp3")
                     .expect(404, done())
             })
     });
