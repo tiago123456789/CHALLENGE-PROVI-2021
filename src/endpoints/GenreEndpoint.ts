@@ -31,14 +31,18 @@ export default class GenreEndpoint extends Endpoint {
             this.isValidDatas(register);
             await this.service.create(register);
             response.sendStatus(201);
-        } catch(error) {
+        } catch (error) {
             next(error);
         }
     }
 
-    async findById(request: Request, response: Response) {
-        const id = request.params.id;
-        const user = await this.service.findById(id);
-        response.json(user);
+    async findById(request: Request, response: Response, next: NextFunction) {
+        try {
+            const id = request.params.id;
+            const user = await this.service.findById(id);
+            response.json(user);
+        } catch (error) {
+            next(error);
+        }
     }
 }
